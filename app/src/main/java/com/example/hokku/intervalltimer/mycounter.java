@@ -63,7 +63,7 @@ public class mycounter extends AppCompatActivity {
 
         //Sätter satus för att intervalltimer är på.
         status = 1;
-        //Tar in minutvärdet och konverterar till sekunder.
+        //Tar in minutvärdet och konverterar till sekunder
 
         new CountDownTimer(MainActivity.iSecOnTime * 1000, 500) {
 
