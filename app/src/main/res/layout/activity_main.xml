@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hokku.intervalltimer.MainActivity">
+
+
+    <TextView
+    android:id="@+id/textViewMinutesOn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/minutes"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/textViewOnTime"
+        android:layout_alignLeft="@+id/numberPickerMinOn"
+        android:layout_alignStart="@+id/numberPickerMinOn" />
+
+
+    <TextView
+        android:id="@+id/textViewSecondsOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seconds"
+        android:layout_alignBaseline="@+id/textViewMinutesOn"
+        android:layout_alignBottom="@+id/textViewMinutesOn"
+        android:layout_alignLeft="@+id/numberPickerSecOn"
+        android:layout_alignStart="@+id/numberPickerSecOn" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerSecOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/numberPickerMinOn"
+        android:layout_alignBottom="@+id/numberPickerMinOn"
+        android:layout_centerHorizontal="true" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerMinOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_below="@+id/textViewSecondsOn"
+        android:layout_toLeftOf="@+id/numberPickerSecOn"
+        android:layout_toStartOf="@+id/numberPickerSecOn"
+         />
+
+    <TextView
+        android:id="@+id/textViewOnTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ontime"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textViewMinutesOn"
+        android:layout_alignStart="@+id/textViewMinutesOn"
+        android:layout_marginTop="17dp" />
+
+    <!-- <TextView
+        android:id="@+id/textViewOnTimeLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewMinutesOff"
+        android:layout_alignStart="@+id/textViewMinutesOff"
+        android:layout_centerVertical="true"
+        android:text="@string/ontimeleft"
+        android:textSize="25sp"
+        /> -->
+
+    <TextView
+        android:id="@+id/textViewMinutesOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/minutes"
+        android:layout_below="@+id/textViewOffTime"
+        android:layout_alignLeft="@+id/textViewOffTime"
+        android:layout_alignStart="@+id/textViewOffTime" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerMinOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewMinutesOff"
+
+
+        android:layout_alignLeft="@+id/numberPickerMinOn"
+        android:layout_alignStart="@+id/numberPickerMinOn" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerSecOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBaseline="@+id/numberPickerMinOff"
+        android:layout_alignBottom="@+id/numberPickerMinOff"
+        android:layout_toRightOf="@+id/numberPickerMinOff"
+        android:layout_toEndOf="@+id/numberPickerMinOff" />
+
+    <TextView
+        android:id="@+id/textViewSecondsOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seconds"
+        android:layout_alignLeft="@+id/numberPickerSecOff"
+        android:layout_alignStart="@+id/numberPickerSecOff"
+        android:layout_alignTop="@+id/textViewMinutesOff" />
+
+    <TextView
+        android:id="@+id/textViewTimes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewSecondsOn"
+        android:layout_alignBottom="@+id/textViewSecondsOn"
+        android:layout_marginLeft="34dp"
+        android:layout_marginStart="34dp"
+        android:layout_toEndOf="@+id/numberPickerSecOn"
+        android:layout_toRightOf="@+id/numberPickerSecOn"
+        android:text="@string/times" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerTimes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/numberPickerSecOn"
+        android:layout_alignBottom="@+id/numberPickerSecOn"
+        android:layout_alignLeft="@+id/textViewTimes"
+        android:layout_alignStart="@+id/textViewTimes" />
+
+    <TextView
+        android:id="@+id/textViewOffTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/offtime"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/numberPickerMinOff"
+        android:layout_alignStart="@+id/numberPickerMinOff" />
+
+    <!--<TextView
+        android:id="@+id/textViewOffTimeLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/numberPickerMinOff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/numberPickerMinOff"
+        android:text="@string/offtimeleft" /> -->
+
+    <!-- <TextView
+        android:id="@+id/textViewIntervallLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intervallleft"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/numberPickerTimes"
+        android:layout_alignStart="@+id/numberPickerTimes" /> -->
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/start"
+        android:onClick="startbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="12dp" />
+
+</RelativeLayout>

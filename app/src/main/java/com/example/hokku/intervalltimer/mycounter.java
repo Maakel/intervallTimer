@@ -7,12 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.concurrent.TimeUnit;
+
 public class mycounter extends AppCompatActivity {
 
     TextView tvOnTimeLeft;
     TextView tvOffTimeLeft;
     TextView tvTimesLeft;
     TextView tvDone;
+    int test;
+
 
     //Mediaplayer
     MediaPlayer mp1;
@@ -45,12 +49,11 @@ public class mycounter extends AppCompatActivity {
 
         //Kontrollerar om timern skall köras.
 
-        if (status == 0 ){
+        if (status == 0 && MainActivity.iTimesSet>0 ){
             onTime();
         }
+
     }
-
-
 
 
 
@@ -63,18 +66,24 @@ public class mycounter extends AppCompatActivity {
 
         //Sätter satus för att intervalltimer är på.
         status = 1;
-        //Tar in minutvärdet och konverterar till sekunder
 
-        new CountDownTimer(MainActivity.iSecOnTime * 1000, 500) {
 
+        new CountDownTimer(MainActivity.lOntime , 500) {
+            //TODO lägga till ljud när aktivitet startar.
+            //TODO Lägga till ljud efter halva tiden har gått.
+            //TODO Är denna runnable så man skall göra ?
+            //TODO Stoppa mediaspelar när man spelat klart.
 
 
             public void onTick(long millisUntilFinished) {
 
                 long seconds = millisUntilFinished/1000;
 
-                tvOnTimeLeft.setText(String.format("%02d", seconds / 60)
-                        + ":" + String.format("%02d", seconds % 60));
+
+                tvOnTimeLeft.setText(""+String.format("%02d : %02d",
+                    TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
+                    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
 
                 if(millisUntilFinished < 5000 && millisUntilFinished > 1000 ) {
                     new Runnable() {
@@ -107,12 +116,16 @@ public class mycounter extends AppCompatActivity {
     }
 
     public void offTime(){
-        new CountDownTimer(MainActivity.iSecOffTime * 1000, 500) {
+        new CountDownTimer(MainActivity.lOfftime, 500) {
 
             public void onTick(long millisUntilFinished) {
                 long seconds = millisUntilFinished/1000;
-                tvOffTimeLeft.setText(String.format("%02d", seconds / 60)
-                        + ":" + String.format("%02d", seconds % 60));
+
+                tvOffTimeLeft.setText(""+String.format("%02d : %02d",
+                        TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+
             }
             public void onFinish() {
 

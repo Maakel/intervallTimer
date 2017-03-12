@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">IntervallTimer</string>
+    <string name="status">Status</string>
+    <string name="ontime">On Time</string>
+    <string name="times">Välj antal</string>
+    <string name="offtime">Off Time</string>
+    <string name="start">Start</string>
+    <string name="minutes">Minuter</string>
+    <string name="seconds">Sekunder</string>
+    <string name="ontimeleft">00:00</string>
+    <string name="offtimeleft">00:00</string>
+    <string name="intervallleft">Intervaller</string>
+
+</resources>

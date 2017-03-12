@@ -36,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
     public static int iTimesSet;
 
 
+    public static long lOntime;                        //Variabel för atntalet minuter och sekunder som skall köras.
+    long lOnTimeSecCalculate;                          //Beräkningsvariabel för metod att ta fram millisekunder från sekunder.
+    long lOnTimeMinCalculate;                          //Beräkningsvariabel för att ta fram millisekunder från minuter.
+
+    public static long lOfftime;                        //Variabel för atntalet minuter och sekunder som skall köras.
+    long lOffTimeSecCalculate;                          //Beräkningsvariabel för metod att ta fram millisekunder från sekunder.
+    long lOffTimeMinCalculate;                          //Beräkningsvariabel för att ta fram millisekunder från minuter.
+
 
 
 
@@ -124,9 +132,43 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Räknar ut antalet millisekunder att köra timer on.
+    public long calculateOntime(int minOn, int secOn){
+
+        //Tar in sekund värdet och konverterar till millisekunder.
+        lOnTimeSecCalculate = secOn * 1000;
+        lOntime = lOnTimeSecCalculate;
+        //Tar in minutvärdet och konverterar till millisekunder.
+        if(MainActivity.iMinOnTime>0){
+            lOnTimeMinCalculate = minOn *60000;
+            lOntime = lOnTimeSecCalculate + lOnTimeMinCalculate;
+        }
+        return lOntime;
+    }
+
+    //Räknar ut antalet millisekunder att köra timer Off.
+    public long calculateOfftime(int minOff, int secOff){
+
+        //Tar in sekund värdet och konverterar till millisekunder.
+        lOffTimeSecCalculate = secOff * 1000;
+        lOfftime = lOffTimeSecCalculate;
+        //Tar in minutvärdet och konverterar till millisekunder.
+        if(MainActivity.iMinOffTime>0){
+            lOffTimeMinCalculate = minOff*60000;
+            lOfftime = lOffTimeSecCalculate + lOffTimeMinCalculate;
+        }
+        return lOfftime;
+    }
+
 
     //Startar timer.
     public void startbutton(View view) {
+        //Sätter antal körda intervaller till 0.
+        iTimes =0;
+        //Kör metod föt att ta reda på antal millisekunder som skall köras.
+        calculateOntime(iMinOnTime,iSecOnTime);
+        calculateOfftime(iMinOffTime,iSecOffTime);
+
         Intent intent = new Intent(this, mycounter.class);
         startActivity(intent);
     }
